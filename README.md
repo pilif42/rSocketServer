@@ -6,11 +6,11 @@
             - java -jar rsc.jar --help
 
 
-# To build: 
+# To build:
 mvn clean install
 
 
-# To run: 
+# To run:
 Run config in IntelliJ pointing to RsocketServerApplication
 Or: mvn clean package spring-boot:run -DskipTests=true
 
@@ -23,12 +23,15 @@ java -jar rsc.jar --debug --request --data "{\"origin\":\"Client\",\"interaction
                 - Metadata = the routing metadata (request-response) being sent to the server.
                 - Data = message that the client is sending to the server = {"origin":"Client","interaction":"Request"}
                 - Data = server’s response message back to the client = {"origin":"Server","interaction":"Response","index":0,"created":1590311085}
-                
-                
-# Server used under the hood: 
+
+
+# Server used under the hood:
 https://netty.io/ -> see log statement = o.s.b.rsocket.netty.NettyRSocketServer : Netty RSocket started on port(s): 7000
 
 
 # TODOs
 https://spring.io/blog/2020/04/06/getting-started-with-rsocket-spring-boot-channels
-Read about Netty.
+Play with Netty:
+    - see https://netty.io/4.0/api/io/netty/channel/ChannelFuture.html
+        - write an example of addListener(GenericFutureListener)
+        
