@@ -99,7 +99,8 @@ public class RSocketController {
                 // create a new indexed Flux emitting one element every second
                 .interval(Duration.ofSeconds(1))
                 // create a Flux of new Messages using the indexed Flux
-                .map(index -> new Message(SERVER, STREAM, index));
+                .map(index -> new Message(SERVER, STREAM, index))
+                .log();
     }
 
     /**

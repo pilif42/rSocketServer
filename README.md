@@ -30,6 +30,5 @@ https://netty.io/ -> see log statement = o.s.b.rsocket.netty.NettyRSocketServer 
 
 
 # TODOs
-https://spring.io/blog/2020/03/23/getting-started-with-rsocket-spring-boot-request-stream
 https://spring.io/blog/2020/04/06/getting-started-with-rsocket-spring-boot-channels
 Read about Netty.
