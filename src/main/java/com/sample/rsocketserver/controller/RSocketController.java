@@ -104,8 +104,11 @@ public class RSocketController {
     }
 
     /**
-     * This @MessageMapping is intended to be used "stream <--> stream" style.
-     * The incoming stream contains the interval settings (in seconds) for the outgoing stream of messages.
+     * This @MessageMapping is intended to be used "stream <--> stream" style. Channels are bi-directional pipes that
+     * allow streams of data to flow in either direction.
+     *
+     * The incoming stream contains the interval settings (in seconds) for the outgoing stream of messages, ie the client
+     * controls the frequency of the messages in the server’s stream.
      *
      * @param settings
      * @return
@@ -116,7 +119,6 @@ public class RSocketController {
         return settings
                 .doOnNext(setting -> log.info("Channel frequency setting is {} second(s).", setting.getSeconds()))
                 .doOnCancel(() -> log.warn("The client cancelled the channel."))
-                .switchMap(setting -> Flux.interval(setting)
-                        .map(index -> new Message(SERVER, CHANNEL, index)));
+                .switchMap(setting -> Flux.interval(setting).map(index -> new Message(SERVER, CHANNEL, index)));
     }
 }

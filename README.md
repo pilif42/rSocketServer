@@ -30,7 +30,6 @@ https://netty.io/ -> see log statement = o.s.b.rsocket.netty.NettyRSocketServer 
 
 
 # TODOs
-https://spring.io/blog/2020/04/06/getting-started-with-rsocket-spring-boot-channels
 Play with Netty:
     - see https://netty.io/4.0/api/io/netty/channel/ChannelFuture.html
         - write an example of addListener(GenericFutureListener)
